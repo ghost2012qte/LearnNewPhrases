@@ -1,0 +1,13 @@
+<ngx-masonry class="card-list" [options]="masonaryOptions">
+    <ngxMasonryItem class="column" *ngFor="let column of columnsOfCards; index as colInd;">
+        <div @shrink-out *ngFor="let card of column; index as cardInd;">
+            <app-card
+                (deleteEvent)="onDeleteChild(colInd, cardInd)"
+                (editEvent)="OnEditChild($event, colInd, cardInd)"
+                [theme]="card.theme"
+                [text]="card.sourceText"
+                [translation]="card.translation">
+            </app-card>
+        </div>
+    </ngxMasonryItem>
+</ngx-masonry>

@@ -1,0 +1,28 @@
+<div class="label {{className}}" *ngIf="!editMode" (dblclick)="deleteEvent.emit()" (click)="toggleTranslation()">
+  <div class="theme">
+    {{theme}}
+    <span class="icon icon-edit" (click)="onEditClick($event)"></span>
+  </div>
+  <div class="text">{{showTranslation ? translation : text}}</div>
+</div>
+
+<form #cardForm="ngForm" novalidate class="label {{className}}" *ngIf="editMode">
+    <div class="theme">
+        Theme
+        <span class="icon icon-apply" (click)="onEditApplyClick(cardForm)"></span>
+        <input #themeRef="ngModel" type="text" required  name="theme" autocomplete="off"
+          [(ngModel)]="theme" pattern="^[\w\s]{5,24}">
+          <small [class.hidden]="!themeRef.errors || themeRef.untouched || !themeRef.errors.required">No empty field allowed</small>
+          <small [class.hidden]="!themeRef.errors || themeRef.untouched || !themeRef.errors.pattern">Must be between 5-24 characters</small>
+    </div>
+    <div class="theme">
+        Text
+        <textarea #textRef="ngModel" [(ngModel)]="text" name="text" required></textarea>
+        <small [class.hidden]="textRef.valid || textRef.untouched">No empty field allowed</small>
+    </div>
+    <div class="theme">
+        Translation
+        <textarea #translationRef="ngModel" [(ngModel)]="translation" name="translation" required></textarea>
+        <small [class.hidden]="translationRef.valid || translationRef.untouched">No empty field allowed</small>
+    </div>
+  </form>

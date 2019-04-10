@@ -1,0 +1,74 @@
+$dateRotation: 2deg;
+
+.title{
+    margin-top: 25px;
+    font-size: 1.2rem;
+    display: flex;
+    position: relative;
+    .caption{
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+        font-weight: 600;
+        margin: auto 0 auto 20px;
+        color: #05abf6;
+    }
+}
+.date{
+    display: table;
+    background-color: #05abf6;
+    color: #fff;
+    padding: 5px 15px;
+    transform: rotate(-$dateRotation);
+    box-shadow: 0 0 2px 1px #a7a4a4;
+    font-weight: 600;
+    div.day{
+        transform: rotate($dateRotation);
+        text-align: center;
+        font-size: 1.8rem;
+        line-height: 1.9rem;
+    }
+    div.month{
+        transform: rotate($dateRotation);
+        line-height: 1rem;
+    }
+}
+
+aside{
+    position: relative;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 250px;
+    .plus{
+        cursor: pointer;
+        display: block;
+        padding: 10px;
+        position: absolute;
+        top: 7px;
+        right: -34px;
+        background-color: black;
+        border-radius: 5px;
+        z-index: 5;
+        .icon-plus{
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-image: url("../appdata/plus.png");
+            background-size: contain;
+        }
+    }
+}
+
+.flex{
+    display: flex;
+}
+
+app-card-list{
+    flex-grow: 1;
+}
+
+
+@media screen and (max-width: 510px){
+    .title .caption{
+        font-size: 1.9rem;
+    }    
+}

@@ -1,0 +1,12 @@
+.card-list{
+    margin-left: 75px;
+    margin-top: 20px;
+    
+    .column {
+        width: 250px;
+        vertical-align: top;
+        &:not(:last-child){
+            margin-right: 20px;
+        }
+    }
+}

@@ -1,0 +1,89 @@
+.label{
+    position: relative;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    z-index: 10;
+    &:hover .theme .icon{
+        visibility: visible;
+    }    
+    .theme{
+        text-align: center;
+        font-weight: 600;
+        margin-bottom: 3px;
+        position: relative;
+        .icon{
+            z-index: 10;
+            visibility: hidden;
+            position: absolute;
+            display: block;
+            top: 0;
+            right: 0;
+            height: 15px;
+            width: 15px;
+            background-size: cover;
+            &:hover{
+                transform: scale(1.2);
+            }
+        }
+        .icon-edit{
+            background-image: url("../../appdata/pencil.png");
+        }
+        .icon-apply{
+            background-image: url("../../appdata/confirm.png");
+        }
+    }
+    .text{
+        font-size: 1rem;
+    }
+    input{
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 2px solid black;
+        outline: none;
+        background-color: transparent;
+        width: 100%;
+        display: block;
+    }
+    textarea{
+        box-sizing: border-box;
+        display: block;
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 60px;
+        background-color: transparent;
+        border: 1px solid black;
+        outline: none;
+    }
+    small{
+        display: block;
+        font-weight: 400;
+        text-align: left;
+    }
+}
+ 
+
+@mixin card-style($color){
+    background-color: $color;
+    box-shadow: 0 0 4px -1px darken($color, 30%);
+    &:hover{
+        background-color: saturate($color, 30%);
+    }
+}
+
+.label-green{
+    @include card-style(#36f8c7);
+}
+.label-grey{
+    @include card-style(#e1e1e1);
+}
+.label-blue{
+    @include card-style(#36ecf8);
+}
+.label-red{
+    @include card-style(#f33162);
+}
+.label-yellow{
+    @include card-style(#ffff3c);
+}
